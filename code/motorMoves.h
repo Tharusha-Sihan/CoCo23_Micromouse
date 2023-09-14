@@ -1,19 +1,19 @@
-// encoder read
-void countLeftEnc() {
-  if (digitalRead(ENCL2)) {
-    leftEncoder ++;
-  } else {
-    leftEncoder --;
-  }
-}
+// // encoder read
+// void countLeftEnc() {
+//   if (digitalRead(ENCL2)) {
+//     leftEncoder ++;
+//   } else {
+//     leftEncoder --;
+//   }
+// }
 
-void countRightEnc() {
-  if (digitalRead(ENCR2)) {
-    rightEncoder ++;
-  } else {
-    rightEncoder --;
-  }
-}
+// void countRightEnc() {
+//   if (digitalRead(ENCR2)) {
+//     rightEncoder ++;
+//   } else {
+//     rightEncoder --;
+//   }
+// }
 
 //-------------------------------------------------------------------------------
 void leftForward(int Pwm) {
@@ -59,24 +59,18 @@ void reverse() {
 }
 
 void turnLeft() {
-  leftBackward(leftPwm);
-  rightForward(rightPwm);
+  leftBackward(leftBase);
+  rightForward(rightBase);
 }
 
 void turnRight() {
-  leftForward(leftPwm);
-  rightBackward(rightPwm);
+  leftForward(leftBase);
+  rightBackward(rightBase);
 }
 
-void mBreak() {
-//  reverse();
-//  delay(20);
-  analogWrite(PINL1, 255);
-  analogWrite(PINL2, 255);
-  analogWrite(PINR1, 255);
-  analogWrite(PINR2, 255);
-//  leftBreak();
-//  rightBreak();
+void brake() {
+  leftBreak();
+  rightBreak();
 }
 
 void idle() {
