@@ -1,11 +1,11 @@
 #include <VL6180X.h>
 #include <Wire.h>
 #include <EEPROM.h>
-#include "piccolaPins.h"
+#include "pin_declare.h"
 #include "piccolaZlgoVariables.h"
 #include "piccolaVariables.h"
 #include "piccolaTof.h"
-#include "piccolaMotors.h"
+#include "motorMoves.h"
 #include "piccolaTurns.h"
 #include "piccolaWallPid.h"
 #include "piccolaSpeed.h"
@@ -19,10 +19,10 @@ void setup()
     motorDiver();
     motorInterrupt();
     pinMode(buzzer, OUTPUT);
-    attachInterrupt(digitalPinToInterrupt(PB12), countLeftOut1, RISING);
-    attachInterrupt(digitalPinToInterrupt(PB13), countLeftOut1, RISING);
-    attachInterrupt(digitalPinToInterrupt(PB14), countRightOut1, RISING);
-    attachInterrupt(digitalPinToInterrupt(PB15), countRightOut1, RISING);
+    attachInterrupt(digitalPinToInterrupt(ENCL1), countLeftOut1, RISING);
+    attachInterrupt(digitalPinToInterrupt(ENCL2), countLeftOut1, RISING);
+    attachInterrupt(digitalPinToInterrupt(ENCR1), countRightOut1, RISING);
+    attachInterrupt(digitalPinToInterrupt(ENCR2), countRightOut1, RISING);
     Serial2.begin(9600);
 }
 
